@@ -13,5 +13,5 @@ manejo de variables, procesos y memoria en el contexto del desarrollo web orient
 
 <p align="justify">
 Esta practica sera desarrollada con estructura de ramales, para el estudiante comiente con la manipulacion correcta
-de ramas en el contexto de control de versiones y desarrollo colaborativo utilizando Git Hub
+de ramas en el contexto de control de versiones y desarrollo colaborativo utilizando Git Hub.
 </p>
