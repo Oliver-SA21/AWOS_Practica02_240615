@@ -5,7 +5,10 @@
 multilinea
 */
 
-//EJERCICIO 01: DEclaracion de variables en JavaScript
+// Personalizacion de  salidas en consola
+const bg= "linear-gradient(45deg, rgba(52, 152, 219, 1) 0%, rgba(41, 128, 185, 1) 50%)";
+const style_console = `background: ${bg}; color: white; padding: 4px 8px; border-radius: 4px; font-size: 14px;`;
+console.log("%c-- EJERCICIO 01: Declaracion de variables en Java Script --", style_console);
 // 1. Utilizando la palabra reservada var
 
 //Utilizamos el metodo WARN para estilizar las respuestas de las pruebas realizadas a 
