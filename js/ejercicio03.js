@@ -102,7 +102,7 @@ solo se ejecutan una sola vez, dando velocidad, individalidad y privacidad a los
 
 // 5. Función aninima sin parámetros
 isNewUser = function(){
-    const hoy = new Date();
+    const hoy = new fecha();
 
     return (
         lastLogin.getFullYear() === hoy.getFullYear() &&
@@ -122,3 +122,52 @@ lastLogin = new Date("2025/12/31");
 console.log("Test 2 - Fecha de ultimo acceso es diferente a la fecha de hoy");
 console.log(`La fecha del último acceso es: ${lastLogin}`);
 console.log(`El usuario logeado es: ${isNewUser()?"Nuevo Usuario": "Usuario Antiguo"}`);
+
+//6. Funciones Anónimas con Parámetros (Versión Arrow o Lambada)
+
+const sumar = (a,b) => {
+    let resultado= a+b;
+    return resultado;
+}
+console.warm("6. Funciones Anónimas con Parámetros")
+console.log ('El resultado de la suma de 15 + 83 es: ${sumar(15,83)}');
+
+/*Cuando la función anónima tiene solo una línea de operación se puede usar una versión simplificada que no usa
+ {} llaves, ni la palabra reservada (return) */
+
+ const multiplicar = (a,b) => a*b;
+ console.log(`El resultado de la suma de 15 +125 es: ${multiplicar(25,125)}`);
+
+//7. Funciones Callback (Regreso de llamado)
+
+const recoverPassword = function(email, Callback)
+{
+    //Generamos el código a enviar al usuario.
+    const recoveryCode= Math.floor(1000000 + Math.random()*900000)
+
+    console.log(`
+        ========================================
+    Solicitud de recuperación recibida 
+    Correo del usuario solicitante: ${email}
+    Generando código de recuperación...
+    Código de Seguridad Generado ${recoveryCode}
+    Enviando el correo al usuario...
+    Correo Enviado a: ${email}, con el código de seguridad: ${recoveryCode}
+    =====================================`);
+
+
+    //definiendo la respuesta del sistema 
+    const response ={
+        status: "OK",
+        message: "Código de recuperación encíado satisfactoriamente."
+    };
+
+    Callback(respuesta);
+    };
+
+    //Invocación de una función callback
+    recoverPassword("osanchez@gmail.com",
+    function(systemResponse){
+        console.log("Respuesta del sistema: ");
+        console.log(systemResponse.message);
+    });
