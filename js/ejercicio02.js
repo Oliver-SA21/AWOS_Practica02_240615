@@ -91,39 +91,47 @@ console.log(`Los tipos de datos de las variables declaradas para los datos de la
     Altitud (GPS): ${typeof(altdGPS)}`);
 
 // 4. STRING (Cadenas de texto)
-var fullnameOwner = "Oliver Sánchez"
-let nameProperty = "Hermosa casa en la playa de Puerto Vallarta"
-let dercriptionProperty = "Hermosa casa de 3 recamaras, 2 baños, cocina equipada, alberca y vista al mar."
-var statusProperty = "Disponible"
-const typeProperty = "C"
+var fullnameOwner = "Oliver Sánchez";
+let nameProperty = "Hermosa casa en la playa de Puerto Vallarta";
+let descriptionProperty = "Hermosa casa de 3 recámaras, 2 baños, cocina equipada, alberca y vista al mar.";
+var statusProperty = "Disponible";
+const typeProperty = "C";
 var addressProperty;
 
 /* Los tipos de datos String son palabras, valores cualitativos de las entidades de nuestra
-aplicación, que no tiene un tamaño maximo y que estan conformadas por caracteres alfabeticos,
-caracteres especiales como acentos o símbolos de algun idioma*/
+aplicación, que no tienen un tamaño máximo y que están conformadas por caracteres alfabéticos,
+caracteres especiales como acentos o símbolos de algún idioma. */
 
 console.warn("4.- STRING (Cadenas de texto)");
 console.log(`El usuario: ${fullnameOwner} está vendiendo o rentando: ${nameProperty}.
 Que consiste en: ${descriptionProperty}.
 Actualmente la propiedad se encuentra: ${statusProperty}, del tipo: ${typeProperty}.`);
 
-//Manipulando Strings, los tipos de datos cualitaativos tienen ciertos metodos para manipulas su valor
-// por mencionar alggunos:
+// Manipulando Strings
 
-// Transformar a mayusculas
-console.log(`Nombre de la propiedad: ${fullnameOwner.toUpperCase()}`);
-// Transformar a minusculas
-console.log(`Descripcion de la propiedad: ${descriptionProperty.toLowerCase()}`);
-// Numero de caracteres
-console.log(`Numero de letras en el tipo de propiedad: ${typeProperty.length}`);
-// Subcadenas
-console.log(`Nombre del propietario: ${fullnameOwner.slice(14, fullnameOwner.length)}`);
+// Transformar a mayúsculas
+console.log(`Nombre del propietario: ${fullnameOwner.toUpperCase()}`);
+
+// Transformar a minúsculas
+console.log(`Descripción de la propiedad: ${descriptionProperty.toLowerCase()}`);
+
+// Número de caracteres
+console.log(`Número de letras en el tipo de propiedad: ${typeProperty.length}`);
+
+// Subcadenas (ejemplo: extraer apellido)
+console.log(`Apellido del propietario: ${fullnameOwner.slice(7)}`);
+
 // Eliminar espacios en blanco
-console.log(`Nombre de la propiedad: ${nameProperty.trim()}`);
-// Reemplazar caracteres
-console.log(`Descripcion modificada: ${descriptionProperty.replace("3 recamaras", "4 recamaras")}`);
-// Reemplazar todos los caracteres
-console.log(`Descripcion modificada: ${descriptionProperty.toLocaleUpperCase().replaceAll("casa", "propiedad")}`);
+console.log(`Nombre de la propiedad (sin espacios al inicio/fin): ${nameProperty.trim()}`);
+
+// Reemplazar texto
+console.log(`Descripción modificada: ${descriptionProperty.replace("3 recámaras", "4 recámaras")}`);
+
+// Reemplazar todos (con toLowerCase para que sí encuentre "casa")
+console.log(
+  `Descripción modificada: ${descriptionProperty.toLowerCase().replaceAll("casa", "propiedad")}`
+);
+
 
 //5. BIGINT (Emntero de grandes dimensiones)
 
@@ -150,114 +158,73 @@ console.log(`Si declaramos la variable con Bigint el valor de numeroGrande3 es: 
 numeroGrande4 = BigInt(12134567890121345678901213456789012134567890);
 console.log(`Si declaramos la variable con Bigint el valor de numeroGrande4 es: ${numeroGrande4} a pesar de ser soportado por: ${typeof (numeroGrande4)} comienza a sufrir problemas de presicion`);
 
-//6. SYMBOL 
-
-/*Es un tipo de dato que ademas de tenr un tipo, un valor, asocia la ubicación del espacio en memoria, por lo que todos los valores
-asignados a una variable de este tipo siempre serán UNICOS */
-
-console.warn("6. SYMBOL (Simbolos)");
+// 6. SYMBOL (Símbolos)
+console.warn("6.- SYMBOL (Símbolos)");
 
 const numero1 = 4;
 const numero2 = 4.0;
 const numero3 = "4";
 const numero4 = "4.0";
+
 const numero5 = Symbol(4);
-const numero6 = symbol(4.0);
-const numero7 = symbol("4");
-const numero8 = symbol("4.0");
+const numero6 = Symbol(4.0);
+const numero7 = Symbol("4");
+const numero8 = Symbol("4.0");
 
-//valores y tipo de datos
 console.log(`Valores y tipos:
-    numero1 - valor: ${numero1}, tipo: ${typeof(numero1)}
-    numero2 - valor: ${numero2}, tipo: ${typeof(numero2)}
-    numero3 - valor: ${numero3}, tipo: ${typeof(numero3)}
-    numero4 - valor: ${numero4}, tipo: ${typeof(numero4)}
-    numero5 - valor: ${numero5.description}, tipo: ${typeof(numero5)}
-    numero6 - valor: ${numero6.description}, tipo: ${typeof(numero6)}
-    numero7 - valor: ${numero7.description}, tipo: ${typeof(numero7)}
-    numero8 - valor: ${numero8.description}, tipo: ${typeof(numero8)}
-    `);
+numero1 - valor: ${numero1}, tipo: ${typeof numero1}
+numero2 - valor: ${numero2}, tipo: ${typeof numero2}
+numero3 - valor: ${numero3}, tipo: ${typeof numero3}
+numero4 - valor: ${numero4}, tipo: ${typeof numero4}
+numero5 - descripcion: ${numero5.description}, tipo: ${typeof numero5}
+numero6 - descripcion: ${numero6.description}, tipo: ${typeof numero6}
+numero7 - descripcion: ${numero7.description}, tipo: ${typeof numero7}
+numero8 - descripcion: ${numero8.description}, tipo: ${typeof numero8}
+`);
 
-// Pruebas comparativas
- if(numero1 ==numero2)
-    console.log("Las variables numero1 y numero2 son igulaes en valor.")
-else
+// Pruebas comparativas (mejor con ===)
+console.log("Comparaciones:");
+console.log("numero1 === numero2:", numero1 === numero2); // true (4 y 4.0)
+console.log("numero1 === numero3:", numero1 === numero3); // false (number vs string)
+console.log("numero1 === numero4:", numero1 === numero4); // false
+console.log("numero1 === numero5:", numero1 === numero5); // false (Symbol nunca es igual a number)
+console.log("numero5 === numero6:", numero5 === numero6); // false (Symbols siempre únicos)
 
-    console.log("Las variables numero1 y numero2 no son iguales en valor.")
-if(numero1 == numero3)
-    console.log("Las variables numero1 y numero3 son igulaes en valor.")
-else
-    console.log("Las variables numero1 y numero3 no son iguales en valor.")
 
-if(numero1 == numero4)
-    console.log("Las variables numero1 y numero4 son igulaes en valor.")
-else
-    console.log("Las variables numero1 y numero4 no son iguales en valor.")
+// 7. NULL (Nulo)
+/* El tipo de dato nulo es similar a UNDEFINED, con la variación de que hay un consentimiento del usuario
+o del sistema a que esta variable intencionalmente fue iniciada con este valor */
 
-if(numero1 == numero5)
-    console.log("Las variables numero1 y numero5 son igulaes en valor.")
-else
-    console.log("Las variables numero1 y numero5 no son iguales en valor.")
-
-if(numero5 == numero6)
-    console.log("Las variables numero5 y numero6 son igulaes en valor.")
-else
-    console.log("Las variables numero5 y numero6 no son iguales en valor.")
-
-if(numero1 ==numero2)
-    console.log("Las variables numero1 y numero2 son igulaes en valor.")
-else
-    console.log("Las variables numero1 y numero2 no son iguales en valor.")
-
-if(numero1 == numero3)
-    console.log("Las variables numero1 y numero3 son igulaes en valor.")
-else
-    console.log("Las variables numero1 y numero3 no son iguales en valor.")
-
-if(numero1 == numero4)
-    console.log("Las variables numero1 y numero4 son igulaes en valor.")
-else
-    console.log("Las variables numero1 y numero4 no son iguales en valor.")
-
-if(numero1 == numero5)
-    console.log("Las variables numero1 y numero5 son igulaes en valor.")
-else
-    console.log("Las variables numero1 y numero5 no son iguales en valor.")
-
-if(numero5 == numero6)
-    console.log("Las variables numero5 y numero6 son igulaes en valor.")
-else
-    console.log("Las variables numero5 y numero6 no son iguales en valor.")
-
-//7. NULL (Nulo)
-/* El tipode dato nulo es similar a UNDFINED, con la variación de que hay un consentimiento del usuario
-o del sistema a que esta variable intencionalmente fue iniciada con este valor*/
-
-var isPremiemUser;
+var isPremiumUser;  // (antes: isPremiemUser)
 var isNewUser;
 let todayDate = new Date();
 var lastLogin = todayDate;
 
-console.warn("7. NULL (Nulo)");
+console.warn("7.- NULL (Nulo)");
+
+// OJO: usa el MISMO nombre que declaraste arriba en tu archivo.
+// En tu código original la variable era: usuariologeado
 console.log(`
-    El usuario: ${usuarioLogeado}, tipo de dato: ${typeof(usuarioLogeado)}
+    El usuario: ${usuariologeado}, tipo de dato: ${typeof(usuariologeado)}
     Fecha ultimo login: ${todayDate}, tipo de dato: ${typeof(todayDate)}
     Es nuevo usuario: ${isNewUser}, tipo de dato: ${typeof(isNewUser)}
-    Es usuario premium: ${isPremiemUser}, tipo de dato: ${typeof(isPremiemUser)}`);
+    Es usuario premium: ${isPremiumUser}, tipo de dato: ${typeof(isPremiumUser)}
+`);
 
 // Validación del usuario
-
-if(todayDate == lastLogin)
+if (todayDate == lastLogin)
     isNewUser = true;
 else
     isNewUser = false;
 
-// Cómo es un usuario nuevo aun no ve, ni publica ninguna propiedad por defecto no interesa por el
-// momento que sea premium hasta que interactue con la plataforma.
-isPremiemUser = null;
-console.log("Datos despues de la validaación de los datos del usuario: ")
+// Como es un usuario nuevo aún no se define si será premium.
+// Intencionalmente se asigna NULL.
+isPremiumUser = null;
+
+console.log("Datos después de la validación de los datos del usuario:");
 console.log(`
-    El usuario: ${usuarioLogeado}, tipo de dato: ${typeof(usuarioLogeado)}
+    El usuario: ${usuariologeado}, tipo de dato: ${typeof(usuariologeado)}
     Fecha ultimo login: ${todayDate}, tipo de dato: ${typeof(todayDate)}
     Es nuevo usuario: ${isNewUser}, tipo de dato: ${typeof(isNewUser)}
-    Es usuario premium: ${isPremiemUser}, tipo de dato: ${typeof(isPremiemUser)}`);
+    Es usuario premium: ${isPremiumUser}, tipo de dato: ${typeof(isPremiumUser)}
+`);

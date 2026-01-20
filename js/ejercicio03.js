@@ -1,5 +1,5 @@
 // Estilización de la barra zona de pruebas en el DevTools en el navegador
-console.log("%cEjercicio 03: Funciones", style_console);
+console.log("%c-- Ejercicio 03: Funciones --", style_console);
 
 // 1. Funciones preocedurales, vacias, VOID, sin valor de retorno y sin parametros de entrada
 
@@ -102,7 +102,7 @@ solo se ejecutan una sola vez, dando velocidad, individalidad y privacidad a los
 
 // 5. Función aninima sin parámetros
 isNewUser = function(){
-    const hoy = new fecha();
+    const hoy = new Date();
 
     return (
         lastLogin.getFullYear() === hoy.getFullYear() &&
@@ -111,7 +111,7 @@ isNewUser = function(){
     );
 };
 
-console.warn("5. Funcines Anonimas, sin parámtros")
+console.warn("5. Funcines Anonimas, sin parámtros");
 
 console.log("Test 1 - Fecha de ultimo acceso es igual a la fecha de hoy");
 console.log(`La fecha del último acceso es: ${lastLogin}`);
@@ -129,7 +129,7 @@ const sumar = (a,b) => {
     let resultado= a+b;
     return resultado;
 }
-console.warm("6. Funciones Anónimas con Parámetros")
+console.warn("6. Funciones Anónimas con Parámetros");
 console.log ('El resultado de la suma de 15 + 83 es: ${sumar(15,83)}');
 
 /*Cuando la función anónima tiene solo una línea de operación se puede usar una versión simplificada que no usa
@@ -162,7 +162,7 @@ const recoverPassword = function(email, Callback)
         message: "Código de recuperación encíado satisfactoriamente."
     };
 
-    Callback(respuesta);
+    Callback(response);
     };
 
     //Invocación de una función callback
