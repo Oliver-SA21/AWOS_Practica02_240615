@@ -39,7 +39,7 @@ console.log("El valor almacenado en la constante matricula es: ", matricula);
 //secciones, mientras que las variables declaradas ccon LET solo existirian dentro del bloque o función.
 
 var fechaNacimiento = new Date(2006,6,12);
-var miEdad =calcularEdad(fechaNacimiento);
+var miEdad =calcularEdad(fechaNacimiento);x|
 console.log("Tu edad es de: ", miEdad, " años.");
 
 
